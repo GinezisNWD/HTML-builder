@@ -10,7 +10,7 @@ fs.readdir(folderPath, { withFileTypes: true }, (err, files) => {
 	for (file of files) {
 		if (file.isFile()) {
 			const info = []
-			const fullPath = path.join(file.path, file.name)
+			const fullPath = path.join(folderPath, file.name)
 			info.push(path.parse(fullPath).name)
 			info.push(path.parse(fullPath).ext.slice(1))
 			const fileSize = new Promise((resolve, reject) => {

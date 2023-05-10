@@ -21,7 +21,7 @@ function copyDir(inputPath, outputPath) {
 		.then((copyFiles) => {
 			for (file of copyFiles) {
 				if (!sourseFilesNames.includes(file.name)) {
-					fsPromise.rm(path.join(file.path, file.name))
+					fsPromise.rm(path.join(outputPath, file.name))
 				}
 			}
 		})

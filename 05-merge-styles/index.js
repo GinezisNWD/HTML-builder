@@ -10,10 +10,9 @@ function mergeStyles(inputPath, outputPath) {
 		.then((data) => {
 			const files = data.filter(elem => elem.name.endsWith('.css'))
 			for (file of files) {
-				fsPromise.readFile(path.join(file.path, file.name), { encoding: 'utf-8' })
+				fsPromise.readFile(path.join(inputPath, file.name), { encoding: 'utf-8' })
 					.then(data => { fsPromise.appendFile(outputPath, data) })
 			}
 		})
-
 }
 mergeStyles(inputPath, outputPath)
